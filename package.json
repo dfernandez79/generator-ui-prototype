@@ -1,13 +1,13 @@
 {
   "name": "generator-ui-prototype",
-  "version": "0.0.0",
-  "description": "Yeoman generator",
+  "version": "0.0.1",
+  "description": "A Yeoman generator to create web UI prototypes.",
   "license": "MIT",
   "main": "app/index.js",
   "repository": "dfernandez79/generator-ui-prototype",
   "author": {
     "name": "Diego Fernandez",
-    "email": "",
+    "email": "diegof79@gmail.com",
     "url": "https://github.com/dfernandez79"
   },
   "engines": {
@@ -24,8 +24,7 @@
   ],
   "dependencies": {
     "yeoman-generator": "~0.16.0",
-    "chalk": "~0.4.0",
-    "barman": "^0.4.2"
+    "chalk": "~0.4.0"
   },
   "devDependencies": {
     "mocha": "*"

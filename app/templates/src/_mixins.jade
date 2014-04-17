@@ -1,0 +1,13 @@
+mixin primaryButton(text, action)
+  button.btn.btn-primary(ng-click="#{action}",type="button") #{text}
+
+mixin modal(varName, title, text)
+  .modal-container(ng-show="#{varName}",ng-click="#{varName}=false")
+    .modal-dialog(ng-show="#{varName}")
+      .modal-content
+        .modal-header
+          .modal-title #{title}
+        .modal-body
+          p #{text}
+        .modal-footer
+          .btn.btn-default(ng-click="#{varName}=false") Close

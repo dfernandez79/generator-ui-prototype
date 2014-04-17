@@ -1,0 +1,18 @@
+extends _layout
+
+block content
+  .container(ng-controller="Ctrl")
+    h1 Your first UI prototype
+
+    .form-group
+      input.form-control(ng-model="name", placeholder="Enter your name")
+
+    +primaryButton("Show modal", "exampleModal=true")
+    h1.bg-info(ng-show="name") Hello {{name}}!
+
+    +modal("exampleModal", "Example", "This is a modal")
+
+block script
+  script.
+    function Ctrl($scope) {
+    }

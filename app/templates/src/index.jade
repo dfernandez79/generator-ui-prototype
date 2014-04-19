@@ -2,17 +2,53 @@ extends _layout
 
 block content
   .container(ng-controller="Ctrl")
-    h1 Your first UI prototype
+    h1 Prototyping demo
 
-    .form-group
-      input.form-control(ng-model="name", placeholder="Enter your name")
+    p 
+      | This page is a demo of different kinds of interactions that you can
+      | easily prototype with Angular and Jade templates.
 
-    +primaryButton("Show modal", "exampleModal=true")
-    h1.bg-info(ng-show="name") Hello {{name}}!
+    h2 Input
 
-    +modal("exampleModal", "Example", "This is a modal")
+    .two-columns
+      .column
+        input.form-control(ng-model="name", placeholder="Enter some text")
+      .column
+        h1(ng-show="name") {{name}}
 
-block script
+    h2 Modal
+      
+    +btn("exampleModal=true").btn-primary Show modal
+
+    +modal("exampleModal", "Modal title")
+      .modal-body: p Modal contents
+      .modal-footer
+        +btn("exampleModal=false").btn-default Close
+        +btn("exampleModal=false").btn-primary Ok
+
+    h2 Multiple states
+
+    select.form-control(ng-model="state")
+      option State 1
+      option State 2
+
+    +switchBy("state")
+      +state("State 1").bg-warning: h1 One
+      +state("State 2").bg-info: h1 Two
+
+    .flex-row
+      .flex-auto(
+        ng-click="state='State 1'",
+        ng-class="{active:state=='State 1'}")
+        | State 1
+      .flex-auto(
+        ng-click="state='State 2'",
+        ng-class="{active:state=='State 2'}")
+        | State 2
+
+
+append scripts
   script.
     function Ctrl($scope) {
+      $scope.state = 'State 1';
     }

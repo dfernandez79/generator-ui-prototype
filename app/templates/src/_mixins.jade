@@ -1,13 +1,28 @@
-mixin primaryButton(text, action)
-  button.btn.btn-primary(ng-click="#{action}",type="button") #{text}
+mixin btn(action)
+  button.btn&attributes(attributes)(ng-click="#{action}",type="button")
+    block
 
-mixin modal(varName, title, text)
-  .modal-container(ng-show="#{varName}",ng-click="#{varName}=false")
-    .modal-dialog(ng-show="#{varName}")
-      .modal-content
-        .modal-header
-          .modal-title #{title}
-        .modal-body
-          p #{text}
-        .modal-footer
-          .btn.btn-default(ng-click="#{varName}=false") Close
+mixin showIf(varName)
+  div(ng-show="#{varName}")
+    block
+
+mixin modal(varName, title)
+  +showIf(varName)  
+    .modal&attributes(attributes)(style="display:block")
+      .modal-dialog
+        .modal-content
+          - if (title)
+            .modal-header
+              button.close(type="button") &times;
+              .modal-title Modal title
+          block
+    .modal-backdrop.fade.in
+
+mixin switchBy(varName)
+  div&attributes(attributes)(ng-switch="#{varName}")
+    block
+
+mixin state(value)
+  div&attributes(attributes)(ng-switch-when="#{value}")
+    block
+

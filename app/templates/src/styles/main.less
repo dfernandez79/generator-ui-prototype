@@ -3,12 +3,35 @@
 
 @fa-font-path: "//netdna.bootstrapcdn.com/font-awesome/4.0.3/fonts";
 
-.modal-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-color: hsla(250, 10%, 22%, 0.74);
-  z-index: 1000;
+.flex-row {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+
+.flex-auto {
+  -webkit-flex: auto;
+  flex: auto;
+}
+
+.two-columns {
+  .flex-row;
+  
+  .column:nth-child(1) {
+    .flex-auto;
+    width: 50%;
+    margin-right: 10px;
+  }
+
+  .column:nth-child(2) {
+    .flex-auto;
+    width: 50%;
+    margin-left: 10px;
+  }
+}
+
+.active {
+  background-color: blue;
+  color: white;
 }

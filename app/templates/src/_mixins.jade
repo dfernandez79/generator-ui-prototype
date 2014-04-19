@@ -1,9 +1,10 @@
 mixin btn(action)
-  button.btn&attributes(attributes)(ng-click="#{action}",type="button")
+  - var cssClass = attributes.class || 'btn-default'
+  button.btn&attributes(attributes)(class=cssClass,ng-click=action,type="button")
     block
 
 mixin showIf(varName)
-  div(ng-show="#{varName}")
+  div&attributes(attributes)(ng-show=varName)
     block
 
 mixin modal(varName, title)
@@ -19,10 +20,16 @@ mixin modal(varName, title)
     .modal-backdrop.fade.in
 
 mixin switchBy(varName)
-  div&attributes(attributes)(ng-switch="#{varName}")
+  div&attributes(attributes)(ng-switch=varName)
     block
 
 mixin state(value)
-  div&attributes(attributes)(ng-switch-when="#{value}")
+  div&attributes(attributes)(ng-switch-when=value)
     block
 
+mixin flyout(varName,closeExp)
+  - attributes.style = "position:absolute;width:100%;"+((attributes.style)?attributes.style:'')
+  - closeExp = closeExp || (varName+'=false')
+  +showIf(varName)&attributes(attributes)
+    block
+    .flyout-backdrop(ng-click=closeExp)

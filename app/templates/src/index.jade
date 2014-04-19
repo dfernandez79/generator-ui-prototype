@@ -1,8 +1,8 @@
 extends _layout
 
 block content
-  .container(ng-controller="Ctrl")
-    h1 Prototyping demo
+  .container
+    .page-header: h1 Prototyping demo
 
     p 
       | This page is a demo of different kinds of interactions that you can
@@ -14,7 +14,7 @@ block content
       .column
         input.form-control(ng-model="name", placeholder="Enter some text")
       .column
-        h1(ng-show="name") {{name}}
+        .well(ng-show="name") {{name}}
 
     h2 Modal
       
@@ -23,12 +23,12 @@ block content
     +modal("exampleModal", "Modal title")
       .modal-body: p Modal contents
       .modal-footer
-        +btn("exampleModal=false").btn-default Close
+        +btn("exampleModal=false") Close
         +btn("exampleModal=false").btn-primary Ok
 
     h2 Multiple states
 
-    select.form-control(ng-model="state")
+    select.form-control(ng-model="state", ng-init="state='State 1'")
       option State 1
       option State 2
 
@@ -46,9 +46,16 @@ block content
         ng-class="{active:state=='State 2'}")
         | State 2
 
+    h2 Absolute positioning
+    div(style="position:relative")
+      input.form-control(
+        ng-model="tooltip",
+        placeholder="Type 'tooltip' to show one",
+        ng-change="showTooltip=tooltip=='tooltip'")
 
-append scripts
-  script.
-    function Ctrl($scope) {
-      $scope.state = 'State 1';
-    }
+      +flyout("showTooltip")(style="top: -108px;")
+        .popover.top(style="display:block")
+          .arrow
+          h3.popover-title Popover top
+          .popover-content
+            p Sed posuere consectetur est at lobortis. Aenean eu leo quam.

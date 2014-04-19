@@ -3,6 +3,11 @@
 
 @fa-font-path: "//netdna.bootstrapcdn.com/font-awesome/4.0.3/fonts";
 
+body {
+  background-color: #ecf0f1;
+  color: #2c3e50;
+}
+
 .flex-row {
   display: -webkit-flex;
   display: flex;
@@ -34,4 +39,14 @@
 .active {
   background-color: blue;
   color: white;
+}
+
+.flyout-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: transparent;
+  z-index: 1000;
 }

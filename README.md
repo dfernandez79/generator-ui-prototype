@@ -1,5 +1,7 @@
 # generator-ui-prototype
-[![Build Status](https://secure.travis-ci.org/dfernandez79/generator-ui-prototype.png?branch=master)](https://travis-ci.org/dfernandez79/generator-ui-prototype)
+[![Build Status](https://travis-ci.org/dfernandez79/generator-ui-prototype.png)](https://travis-ci.org/dfernandez79/generator-ui-prototype)
+[![NPM version](https://badge.fury.io/js/generator-ui-prototype.png)](http://badge.fury.io/js/generator-ui-prototype)
+[![devDependency Status](https://david-dm.org/dfernandez79/generator-ui-prototype/status.png)](https://david-dm.org/dfernandez79/generator-ui-prototype#info=dependencies)
 
 > [Yeoman] generator to create HTML prototypes using Jade,
   AngularJS, and LESS.
@@ -51,11 +53,11 @@ When you run `grunt` on the generated project:
 
 * Every file in `src` is processed and copied to `.generated`.
 * A web server is started using `.generated` as a root.
-* You can edit [LESS] and Jade files in `src`, the contents of `.generated` will
+* You can edit [LESS] and [Jade] files in `src`, the contents of `.generated` will
   be updated automatically.
-* The included example uses Bower to manage JavaScript libraries, and every
+* The included example uses [Bower] to manage JavaScript libraries, and every
   `.js` inside `bower_components` will be copied to `.generated/scripts/libs`.
-* The example is based on Bootstrap and Angular, and shows how you can
+* The example is based on [Bootstrap] and Angular, and shows how you can
   prototype a web UI without any JavaScript code. It also includes some
   convenient Jade mixins for quick prototyping.
 
@@ -69,3 +71,4 @@ MIT
 [Jade]: http://jade-lang.com/
 [Bower]: http://bower.io/
 [Bootstrap]: http://getbootstrap.com/
+[Angular]: https://angularjs.org/

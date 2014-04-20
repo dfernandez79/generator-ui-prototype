@@ -4,11 +4,11 @@ mixin btn(action)
     block
 
 mixin showIf(varName)
-  div&attributes(attributes)(ng-show=varName)
+  div&attributes(attributes)(ng-show=varName, ng-cloak)
     block
 
 mixin modal(varName, title)
-  +showIf(varName)  
+  +showIf(varName)
     .modal&attributes(attributes)(style="display:block")
       .modal-dialog
         .modal-content
@@ -33,3 +33,11 @@ mixin flyout(varName,closeExp)
   +showIf(varName)&attributes(attributes)
     block
     .flyout-backdrop(ng-click=closeExp)
+
+mixin fixedGrid(width,gutterWidth,cols)
+  .grid-toggle(ng-init="showGrid=false", ng-click="showGrid=!showGrid")
+    | Grid: {{showGrid}}
+
+  +showIf("showGrid")&attributes(attributes).grid-container
+    - for (var i = 0; i < cols; i++)
+      .col(style="width:#{width}px; margin: 0 #{gutterWidth}px")

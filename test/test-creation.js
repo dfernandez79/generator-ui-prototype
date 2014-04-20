@@ -1,9 +1,13 @@
 /*global describe, beforeEach, it */
 'use strict';
-var path = require('path');
-var helpers = require('yeoman-generator').test;
+
+var
+  path = require('path'),
+  helpers = require('yeoman-generator').test;
+
 
 describe('ui-prototype generator', function () {
+
   beforeEach(function (done) {
     helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
       if (err) {
@@ -22,13 +26,20 @@ describe('ui-prototype generator', function () {
       '.jshintrc',
       '.editorconfig',
       '.gitignore',
+      '.bowerrc',
       'bower.json',
       'package.json',
-      'Gruntfile.js'
+      'Gruntfile.js',
+      'src/index.jade',
+      'src/_layout.jade',
+      'src/_mixins.jade',
+      'src/styles/main.less',
+      'src/scripts/livereload-support.js'
     ];
 
     helpers.mockPrompt(this.app, {
-      'someOption': true
+      name: 'test-project',
+      description: 'Test project for unit testing'
     });
     this.app.options['skip-install'] = true;
     this.app.run({}, function () {
@@ -36,4 +47,5 @@ describe('ui-prototype generator', function () {
       done();
     });
   });
+
 });

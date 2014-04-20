@@ -1,10 +1,12 @@
 extends _layout
 
 block content
+  +fixedGrid(60,10,12).flex-justify-center
+
   .container
     .page-header: h1 Prototyping demo
 
-    p 
+    p
       | This page is a demo of different kinds of interactions that you can
       | easily prototype with Angular and Jade templates.
 
@@ -17,7 +19,7 @@ block content
         .well(ng-show="name") {{name}}
 
     h2 Modal
-      
+
     +btn("exampleModal=true").btn-primary Show modal
 
     +modal("exampleModal", "Modal title")
@@ -28,23 +30,23 @@ block content
 
     h2 Multiple states
 
-    select.form-control(ng-model="state", ng-init="state='State 1'")
-      option State 1
-      option State 2
+    .two-columns
+      .column
+        .form-group: select.form-control(ng-model="state", ng-init="state='State 1'")
+          option State 1
+          option State 2
 
-    +switchBy("state")
-      +state("State 1").bg-warning: h1 One
-      +state("State 2").bg-info: h1 Two
+        .form-group: .btn-group
+          +btn("state='State 1'")(ng-class="{active:state=='State 1'}")
+            | State 1
+          +btn("state='State 2'")(ng-class="{active:state=='State 2'}")
+            | State 2
 
-    .flex-row
-      .flex-auto(
-        ng-click="state='State 1'",
-        ng-class="{active:state=='State 1'}")
-        | State 1
-      .flex-auto(
-        ng-click="state='State 2'",
-        ng-class="{active:state=='State 2'}")
-        | State 2
+      .column
+        +switchBy("state")
+          +state("State 1").bg-warning: h1 One
+          +state("State 2").bg-info: h1 Two
+
 
     h2 Absolute positioning
     div(style="position:relative")

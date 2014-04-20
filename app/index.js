@@ -45,6 +45,7 @@ module.exports = yeoman.generators.Base.extend({
     this.copy('editorconfig', '.editorconfig');
     this.copy('jshintrc', '.jshintrc');
     this.copy('gitignore', '.gitignore');
+    this.copy('bowerrc', '.bowerrc');
   },
 
   createDirectories: function () {

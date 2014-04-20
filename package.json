@@ -1,7 +1,7 @@
 {
   "name": "generator-ui-prototype",
   "version": "0.0.1",
-  "description": "A Yeoman generator to create web UI prototypes.",
+  "description": "Yeoman generator to create HTML prototypes using Jade, AngularJS, and LESS.",
   "license": "MIT",
   "main": "app/index.js",
   "repository": "dfernandez79/generator-ui-prototype",
@@ -20,11 +20,13 @@
     "app"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "prototyping",
+    "web",
+    "ui"
   ],
   "dependencies": {
-    "yeoman-generator": "~0.16.0",
-    "chalk": "~0.4.0"
+    "yeoman-generator": "~0.16.0"
   },
   "devDependencies": {
     "mocha": "*"

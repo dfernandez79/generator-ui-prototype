@@ -25,7 +25,7 @@ module.exports = function (grunt) {
         }, {
           expand: true,
           dest: '<%%= meta.siteDir %>/scripts/libs',
-          src: ['angular/angular.min.js', 'angular/angular.min.js.map'],
+          src: ['**/*.js'],
           cwd: 'bower_components'
         }]
       }
@@ -70,6 +70,7 @@ module.exports = function (grunt) {
     connect: {
       server: {
         options: {
+          hostname: 'localhost',
           port: '<%%= meta.serverPort %>',
           base: '<%%= meta.siteDir %>',
           open: true

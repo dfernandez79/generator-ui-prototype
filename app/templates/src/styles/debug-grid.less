@@ -1,0 +1,58 @@
+.grid-toggle {
+  position:fixed;
+  top:0;
+  left: 50%;
+  margin-left: -80px;
+  padding: 2px 10px;
+  opacity: 0.5;
+  background-color: white;
+  font-size: @font-size-small;
+  text-transform: uppercase;
+  cursor: pointer;
+  z-index: 2050;
+}
+
+.grid-container {
+  .flex-row;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2000;
+
+  .col {
+    .flex-none;
+    background-color: red;
+    opacity: 0.1;
+  }
+}
+
+.baseline-grid-container {
+  .flex-column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2000;
+
+  .baseline-row {
+    .flex-none;
+    position: relative;
+    border-bottom: 1px solid green;
+    height: @line-height-computed;
+    opacity: 0.5;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: (@line-height-computed/2);
+      border-bottom: 1px solid blue;
+      opacity: 0.3;
+    }
+  }
+}

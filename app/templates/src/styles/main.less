@@ -1,5 +1,6 @@
 @import '../../bower_components/bootstrap/less/bootstrap';
 @import '../../bower_components/fontawesome/less/font-awesome';
+@import 'debug-grid';
 
 @fa-font-path: "//netdna.bootstrapcdn.com/font-awesome/4.0.3/fonts";
 
@@ -24,6 +25,13 @@ body {
   display: flex;
   -webkit-flex-direction: row;
   flex-direction: row;
+}
+
+.flex-column {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
 }
 
 .flex-auto {
@@ -69,32 +77,4 @@ body {
   right: 0;
   background-color: transparent;
   z-index: 1000;
-}
-
-.grid-toggle {
-  position:fixed;
-  top:0;
-  left:0;
-  padding: 2px 10px;
-  opacity: 0.5;
-  background-color: white;
-  font-size: @font-size-small;
-  text-transform: uppercase;
-  cursor: pointer;
-  z-index:1000;
-}
-
-.grid-container {
-  .flex-row;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  .col {
-    .flex-none;
-    background-color: red;
-    opacity: 0.1;
-  }
 }

@@ -11,8 +11,8 @@ module.exports = function (grunt) {
     meta: {
       siteDir: '.generated',
       srcDir: 'src',
-      livereloadPort: 35730,
-      serverPort: 9001
+      livereloadPort: <%=props.livereloadPort%>,
+      serverPort: <%=props.serverPort%>
     },
 
     copy: {

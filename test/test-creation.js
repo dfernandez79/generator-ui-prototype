@@ -33,7 +33,9 @@ describe('ui-prototype generator', function () {
       'src/index.jade',
       'src/_layout.jade',
       'src/_mixins.jade',
+      'src/_debug-grid.jade',
       'src/styles/main.less',
+      'src/styles/debug-grid.less',
       'src/scripts/livereload-support.js'
     ];
 

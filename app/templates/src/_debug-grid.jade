@@ -1,0 +1,15 @@
+mixin debugGrid(width, gutterWidth, cols, gridAttributes, baseLineAttributes)
+  - gridAttributes = gridAttributes || {}
+  - baseLineAttributes = baseLineAttributes || {}
+  .grid-toggle
+    .flex-row(ng-init="showGrid=false; baselineGrid=false")
+      +btn("showGrid=!showGrid").btn-default.btn-xs Grid: {{showGrid}}
+      +btn("baselineGrid=!baselineGrid").btn-default.btn-xs Baseline grid: {{showGrid}}
+
+  +showIf("showGrid").grid-container&attributes(gridAttributes)
+    - for (var i = 0; i < cols; i++)
+      .col(style="width:#{width}px; margin: 0 #{gutterWidth}px")
+
+  +showIf("baselineGrid").baseline-grid-container&attributes(baseLineAttributes)
+    - for (var r = 0; r < 100; r++)
+      .baseline-row

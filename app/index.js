@@ -27,6 +27,14 @@ module.exports = yeoman.generators.Base.extend({
       name: 'description',
       message: 'Description',
       default: 'The best UI prototype ever.'
+    }, {
+      name: 'serverPort',
+      message: 'Local server port (use the default if you don\'t know what this means)',
+      default: 9001
+    }, {
+      name: 'livereloadPort',
+      message: 'Live reload port (use the default if you don\'t know what this means)',
+      default: 35730
     }];
 
     this.prompt(prompts, function (props) {
@@ -61,10 +69,12 @@ module.exports = yeoman.generators.Base.extend({
 
   createExample: function () {
     this.copy('src/index.jade', 'src/index.jade');
+    this.copy('src/_debug-grid.jade', 'src/_debug-grid.jade');
     this.copy('src/_layout.jade', 'src/_layout.jade');
     this.copy('src/_mixins.jade', 'src/_mixins.jade');
-    this.copy('src/scripts/livereload-support.js', 'src/scripts/livereload-support.js');
+    this.copy('src/scripts/_livereload-support.js', 'src/scripts/livereload-support.js');
     this.copy('src/styles/main.less', 'src/styles/main.less');
+    this.copy('src/styles/debug-grid.less', 'src/styles/debug-grid.less');
   }
 
 });

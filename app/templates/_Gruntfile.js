@@ -23,7 +23,8 @@ module.exports = function (grunt) {
           src: [
             '**/*.*',
             '!scripts/livereload-support.js',
-            '!styles/**/*.less', '!**/*.jade'],
+            '!styles/**/*.less', '!**/*.jade'
+          ],
           cwd: '<%%= config.srcDir %>'
         }, {
           expand: true,

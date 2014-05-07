@@ -8,7 +8,7 @@ module.exports = function (grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
-    meta: {
+    config: {
       siteDir: '.generated',
       srcDir: 'src',
       livereloadPort: <%=props.livereloadPort%>,
@@ -19,26 +19,39 @@ module.exports = function (grunt) {
       assets: {
         files: [{
           expand: true,
-          dest: '<%%= meta.siteDir %>',
-          src: ['**/*.*', '!styles/**/*.less', '!**/*.jade'],
-          cwd: '<%%= meta.srcDir %>'
+          dest: '<%%= config.siteDir %>',
+          src: [
+            '**/*.*',
+            '!scripts/livereload-support.js',
+            '!styles/**/*.less', '!**/*.jade'],
+          cwd: '<%%= config.srcDir %>'
         }, {
           expand: true,
-          dest: '<%%= meta.siteDir %>/scripts/libs',
+          dest: '<%%= config.siteDir %>/scripts/libs',
           src: ['**/*.js'],
           cwd: 'bower_components'
         }]
+      },
+
+      liveReloadScript: {
+        dest: '<%= config.siteDir %>/scripts/livereload-support.js',
+        src: 'scripts/livereload-support.js',
+        options: {
+          process: function (content) {
+            return grunt.template.process(content);
+          }
+        }
       }
     },
 
     clean: {
-      generated: '<%%= meta.siteDir %>'
+      generated: '<%%= config.siteDir %>'
     },
 
     less: {
       compile: {
         files: {
-          '<%%= meta.siteDir %>/styles/main.css': '<%%= meta.srcDir %>/styles/main.less'
+          '<%%= config.siteDir %>/styles/main.css': '<%%= config.srcDir %>/styles/main.less'
         },
         options: {
           sourceMap: true
@@ -50,9 +63,9 @@ module.exports = function (grunt) {
       compile: {
         files: [{
           expand: true,
-          cwd: '<%%= meta.srcDir %>',
+          cwd: '<%%= config.srcDir %>',
           src: ['**/*.jade', '!**/_*.jade'],
-          dest: '<%%= meta.siteDir %>',
+          dest: '<%%= config.siteDir %>',
           ext: '.html'
         }]
       }
@@ -60,19 +73,28 @@ module.exports = function (grunt) {
 
     watch: {
       options: {
-        livereload: '<%%= meta.livereloadPort %>'
+        livereload: '<%%= config.livereloadPort %>'
       },
-      styles: { files: ['src/styles/**/*.less'], tasks: ['less'] },
-      jade: { files: 'src/**/*.jade', tasks: ['jade'] },
-      assets: { files: ['src/**/*.*', '!src/styles/**/*.less', '!src/**/*.jade'], tasks: ['copy']}
+      styles: {
+        files: ['src/styles/**/*.less'],
+        tasks: ['less']
+      },
+      jade: {
+        files: 'src/**/*.jade',
+        tasks: ['jade']
+      },
+      assets: {
+        files: ['src/**/*.*', '!src/styles/**/*.less', '!src/**/*.jade'],
+        tasks: ['copy']
+      }
     },
 
     connect: {
       server: {
         options: {
           hostname: 'localhost',
-          port: '<%%= meta.serverPort %>',
-          base: '<%%= meta.siteDir %>',
+          port: '<%%= config.serverPort %>',
+          base: '<%%= config.siteDir %>',
           open: true
         }
       }

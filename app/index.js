@@ -72,7 +72,9 @@ module.exports = yeoman.generators.Base.extend({
     this.copy('src/_debug-grid.jade', 'src/_debug-grid.jade');
     this.copy('src/_layout.jade', 'src/_layout.jade');
     this.copy('src/_mixins.jade', 'src/_mixins.jade');
-    this.copy('src/scripts/_livereload-support.js', 'src/scripts/livereload-support.js');
+    this.copy(
+      'src/scripts/livereload-support.js', 
+      'src/scripts/livereload-support.js');
     this.copy('src/styles/main.less', 'src/styles/main.less');
     this.copy('src/styles/debug-grid.less', 'src/styles/debug-grid.less');
   }

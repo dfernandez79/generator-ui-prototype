@@ -45,8 +45,8 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   createPackageDescriptions: function () {
-    this.copy('_package.json', 'package.json');
-    this.copy('_bower.json', 'bower.json');
+    this.copy('package.json');
+    this.copy('bower.json');
   },
 
   createDotFiles: function () {
@@ -61,22 +61,16 @@ module.exports = yeoman.generators.Base.extend({
     this.mkdir('src/styles');
     this.mkdir('src/scripts');
     this.mkdir('src/images');
+    this.mkdir('grunt');
   },
 
   createGruntfile: function () {
-    this.copy('_Gruntfile.js', 'Gruntfile.js');
+    this.copy('Gruntfile.coffee');
+    this.directory('grunt');
   },
 
   createExample: function () {
-    this.copy('src/index.jade', 'src/index.jade');
-    this.copy('src/_debug-grid.jade', 'src/_debug-grid.jade');
-    this.copy('src/_layout.jade', 'src/_layout.jade');
-    this.copy('src/_mixins.jade', 'src/_mixins.jade');
-    this.copy(
-      'src/scripts/livereload-support.js', 
-      'src/scripts/livereload-support.js');
-    this.copy('src/styles/main.less', 'src/styles/main.less');
-    this.copy('src/styles/debug-grid.less', 'src/styles/debug-grid.less');
+    this.directory('src');
   }
 
 });

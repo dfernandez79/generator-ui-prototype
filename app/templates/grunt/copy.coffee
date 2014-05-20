@@ -20,6 +20,6 @@ module.exports =
 
   liveReloadScript:
     dest: '<%%=config.siteDir%>/scripts/livereload-support.js'
-    src: 'scripts/livereload-support.js'
+    src: 'src/scripts/livereload-support.js'
     options:
       process: (content) -> grunt.template.process(content)

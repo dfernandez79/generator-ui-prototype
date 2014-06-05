@@ -1,4 +1,4 @@
-module.exports =
+module.exports = (grunt) ->
   assets:
     files: [
       {

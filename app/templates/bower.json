@@ -3,8 +3,8 @@
   "description": "<%=props.description%>",
   "version": "0.0.0",
   "dependencies": {
-    "bootstrap": "~3.1.1",
-    "angular": "~1.2.16",
+    "bootstrap": "~3.2.0",
+    "angular": "~1.2.22",
     "lodash": "~2.4.1"
   }
 }

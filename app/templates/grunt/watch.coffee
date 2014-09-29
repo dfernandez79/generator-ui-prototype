@@ -10,3 +10,7 @@ module.exports =
   assets:
     files: ['src/**/*.*', '!src/styles/**/*.less', '!src/**/*.jade']
     tasks: ['copy']
+  grunt:
+    files: ['Gruntfile.coffee', 'grunt/*.*']
+    options:
+      reload: true

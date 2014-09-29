@@ -35,6 +35,11 @@ module.exports = yeoman.generators.Base.extend({
       name: 'livereloadPort',
       message: 'Live reload port (use the default if you don\'t know what this means)',
       default: 35730
+    }, {
+      name: 'fontAwesome',
+      message: 'Add Font Awesome?',
+      type: 'confirm',
+      default: true
     }];
 
     this.prompt(prompts, function (props) {

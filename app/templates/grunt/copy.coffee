@@ -15,7 +15,12 @@ module.exports = (grunt) ->
         dest: '<%%=config.siteDir%>/scripts/libs'
         src: ['**/*.js']
         cwd: 'bower_components'
-      }
+      }<%if (props.fontAwesome) {%>, {
+        expand: true
+        dest: '<%%=config.siteDir%>/fonts'
+        src: ['**/*.*']
+        cwd: 'node_modules/font-awesome/fonts'
+      }<%}%>
     ]
 
   liveReloadScript:

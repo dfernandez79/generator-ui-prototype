@@ -6,17 +6,11 @@ var yeoman = require('yeoman-generator');
 
 module.exports = yeoman.generators.Base.extend({
 
-  init: function () {
+  initializing: function () {
     this.pkg = require('../package.json');
-
-    this.on('end', function () {
-      if (!this.options['skip-install']) {
-        this.installDependencies();
-      }
-    });
   },
 
-  askFor: function () {
+  prompting: function () {
     var cb = this.async();
 
     var prompts = [{
@@ -49,33 +43,41 @@ module.exports = yeoman.generators.Base.extend({
     }.bind(this));
   },
 
-  createPackageDescriptions: function () {
-    this.copy('package.json');
-    this.copy('bower.json');
+  writing: {
+    packages: function () {
+      this.copy('package.json');
+      this.copy('bower.json');
+    },
+
+    dotFiles: function () {
+      this.copy('editorconfig', '.editorconfig');
+      this.copy('jshintrc', '.jshintrc');
+      this.copy('gitignore', '.gitignore');
+      this.copy('bowerrc', '.bowerrc');
+    },
+
+    directories: function () {
+      this.mkdir('src');
+      this.mkdir('src/styles');
+      this.mkdir('src/scripts');
+      this.mkdir('src/images');
+      this.mkdir('grunt');
+    },
+
+    gruntfile: function () {
+      this.copy('Gruntfile.coffee');
+      this.directory('grunt');
+    },
+
+    example: function () {
+      this.directory('src');
+    }
   },
 
-  createDotFiles: function () {
-    this.copy('editorconfig', '.editorconfig');
-    this.copy('jshintrc', '.jshintrc');
-    this.copy('gitignore', '.gitignore');
-    this.copy('bowerrc', '.bowerrc');
-  },
-
-  createDirectories: function () {
-    this.mkdir('src');
-    this.mkdir('src/styles');
-    this.mkdir('src/scripts');
-    this.mkdir('src/images');
-    this.mkdir('grunt');
-  },
-
-  createGruntfile: function () {
-    this.copy('Gruntfile.coffee');
-    this.directory('grunt');
-  },
-
-  createExample: function () {
-    this.directory('src');
+  install: function () {
+    this.installDependencies({
+      skipInstall: this.options['skip-install']
+    });
   }
 
 });

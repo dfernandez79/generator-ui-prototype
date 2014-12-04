@@ -1,3 +1,3 @@
 module.exports =
-  site: ['copy:assets', 'copy:liveReloadScript', 'jade', 'less']
+  site: ['copy:assets', 'jade', 'less']
   default: ['site', 'connect:server', 'watch']

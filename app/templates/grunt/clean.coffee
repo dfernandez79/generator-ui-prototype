@@ -1,1 +1,1 @@
-module.exports = generated: '<%%=config.siteDir%>'
+module.exports = generated: '<%%=config.site.dir%>'

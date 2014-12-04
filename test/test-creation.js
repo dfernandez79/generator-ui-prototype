@@ -39,12 +39,8 @@ describe('ui-prototype generator', function () {
       'grunt/less.coffee',
       'grunt/watch.coffee',
       'src/index.jade',
-      'src/_layout.jade',
       'src/_mixins.jade',
-      'src/_debug-grid.jade',
-      'src/styles/main.less',
-      'src/styles/debug-grid.less',
-      'src/scripts/livereload-support.js'
+      'src/styles/main.less'
     ];
 
     helpers.mockPrompt(this.app, {

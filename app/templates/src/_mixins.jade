@@ -1,6 +1,7 @@
 mixin btn(action)
-  - var cssClass = attributes.class || 'btn-default'
-  button.btn&attributes(attributes)(class=cssClass,ng-click=action,type="button")
+  - attributes.class = attributes.class || 'btn-default'
+  - if (action) { attributes['ng-click'] = action; }
+  button.btn&attributes(attributes)(type="button")
     block
 
 mixin showIf(varName)

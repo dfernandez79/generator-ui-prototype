@@ -3,5 +3,6 @@ module.exports =
     options:
       hostname: 'localhost'
       port: '<%%=config.serverPort%>'
-      base: '<%%=config.siteDir%>'
+      base: '<%%=config.site.dir%>'
+      livereload: '<%%=config.livereloadPort%>'
       open: true

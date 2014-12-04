@@ -12,5 +12,6 @@ module.exports =
     tasks: ['copy']
   grunt:
     files: ['Gruntfile.coffee', 'grunt/*.*']
+    tasks: ['site']
     options:
       reload: true

@@ -1,4 +1,4 @@
-module.exports = 
+module.exports =
   compile:
     files:
-      '<%%=config.siteDir%>/styles/main.css': '<%%=config.srcDir%>/styles/main.less'
+      '<%%=config.site.dir%>/styles/main.css': '<%%=config.src.dir%>/styles/main.less'

@@ -3,28 +3,22 @@ module.exports = (grunt) ->
     files: [
       {
         expand: true
-        dest: '<%%=config.siteDir%>'
+        dest: '<%%=config.site.dir%>'
         src: [
           '**/*.*'
-          '!scripts/livereload-support.js'
-          '!styles/**/*.less', '!**/*.jade'
+          '!**/*.less'
+          '!**/*.jade'
         ]
-        cwd: '<%%=config.srcDir%>'
+        cwd: '<%%=config.src.dir%>'
       }, {
         expand: true
-        dest: '<%%=config.siteDir%>/scripts/libs'
+        dest: '<%%=config.site.vendor%>'
         src: ['**/*.js']
         cwd: 'bower_components'
       }<%if (props.fontAwesome) {%>, {
         expand: true
-        dest: '<%%=config.siteDir%>/fonts'
+        dest: '<%%=config.site.fonts%>'
         src: ['**/*.*']
         cwd: 'node_modules/font-awesome/fonts'
       }<%}%>
     ]
-
-  liveReloadScript:
-    dest: '<%%=config.siteDir%>/scripts/livereload-support.js'
-    src: 'src/scripts/livereload-support.js'
-    options:
-      process: (content) -> grunt.template.process(content)

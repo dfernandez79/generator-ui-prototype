@@ -1,3 +1,12 @@
+> ⚠️ **Archived Project** ⚠️
+>
+> I created this project a while ago as a template for quick Web UI prototypes. At that time, Angular 1 was new and popular.
+> 
+> Nowadays are much better options:
+> - If you need transpiling and bundling, try Vite or create-react-app.
+> - If you need to do visual prototypes, try commercial tools like Figma, Sketch, or Framer. (the last one also can use React components).
+> - The Angular ecosystem is very different from Angular 1.
+----
 # generator-ui-prototype
 [![Build Status](https://travis-ci.org/dfernandez79/generator-ui-prototype.png)](https://travis-ci.org/dfernandez79/generator-ui-prototype)
 [![NPM version](https://badge.fury.io/js/generator-ui-prototype.png)](http://badge.fury.io/js/generator-ui-prototype)
